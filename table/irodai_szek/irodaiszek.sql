@@ -1,0 +1,34 @@
+PROMPT Creating irodaiszek...
+CREATE TABLE irodaiszek(
+irodaiszek_id              NUMBER        NOT NULL PRIMARY KEY
+,hattamla_id               NUMBER        NOT NULL
+,talp_id                   NUMBER        NOT NULL
+,ules_id                   NUMBER        NOT NULL
+,ar                        NUMBER        NOT NULL
+,mod_user                  varchar2(300)
+,created_on                timestamp
+,last_mod                  timestamp
+,DML_FLAG                  varchar2(1)
+,VERSION                   NUMBER
+);
+
+ALTER TABLE irodaiszek
+ADD CONSTRAINT fk_hattamla FOREIGN KEY (hattamla_id) REFERENCES hattamla(hattamla_id);
+ALTER TABLE irodaiszek
+ADD CONSTRAINT fk_talp FOREIGN KEY (talp_id) REFERENCES talp(talp_id)
+ALTER TABLE irodaiszek
+ADD CONSTRAINT fk_ules FOREIGN KEY (ules_id) REFERENCES ules(ules_id)
+
+/*Tételezzük fel, hogy végtelenszámú varáció lehetséges, így csak akkor érdemes egy adott 
+konfigurációra rekordot létrehozni ha az ügyfél még nem hozott létre ilyen fajta variánst/példányt*/
+COMMENT ON TABLE irodaiszek IS 'Az ügyfél álltal összekonfigurált összes irodaiszék összesítõ táblázata';
+COMMENT ON COLUMN irodaiszek.hattamla_id IS 'Hattamla azonositó';
+COMMENT ON COLUMN irodaiszek.talp_id IS 'Talp azonositó';
+COMMENT ON COLUMN irodaiszek.ules_id IS 'Ülõrész azonosito';
+COMMENT ON COLUMN irodaiszek.mod_user IS 'A rekordot létrehozó user';
+COMMENT ON COLUMN irodaiszek.created_on IS 'Rekord lérehozásának dátuma';
+COMMENT ON COLUMN irodaiszek.last_mod IS 'Utolsó módosítás dátuma';
+COMMENT ON COLUMN irodaiszek.DML_FLAG IS 'Utolsó végrehajtott mûvelet';
+COMMENT ON COLUMN irodaiszek.VERSION IS 'Verzió';
+
+PROMPT Done.

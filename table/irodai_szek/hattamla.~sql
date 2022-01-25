@@ -1,0 +1,25 @@
+PROMPT Creating Hattamla...
+CREATE TABLE hattamla(
+hattamla_id                NUMBER        NOT NULL PRIMARY KEY
+,hattamla_neve             VARCHAR2(300) NOT NULL
+,ar                        NUMBER        NOT NULL     
+,mod_user                  varchar2(300)
+,created_on                timestamp
+,last_mod                  timestamp
+,DML_FLAG                  varchar2(1)
+,VERSION                   number
+);
+
+COMMENT ON TABLE hattamla IS 'Létezõ összes irdoaiszékhez illeszhetõ háttámlák listája.';
+COMMENT ON COLUMN hattamla.hattamla_neve IS 'Háttámla neve';
+COMMENT ON COLUMN hattamla.ar IS 'Háttámla ára';
+COMMENT ON COLUMN hattamla.mod_user IS 'A rekordot létrehozó user';
+COMMENT ON COLUMN hattamla.created_on IS 'Rekord lérehozásának dátuma';
+COMMENT ON COLUMN hattamla.last_mod IS 'Utolsó módosítás dátuma';
+COMMENT ON COLUMN hattamla.DML_FLAG IS 'Utolsó végrehajtott mûvelet';
+COMMENT ON COLUMN hattamla.VERSION IS 'Verzió';
+PROMPT Done.
+/*
+
+*/
+prompt Done.

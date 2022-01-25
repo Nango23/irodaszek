@@ -1,0 +1,42 @@
+PROMPT Creating talp...
+
+CREATE TABLE ules(
+ules_id        NUMBER        NOT NULL PRIMARY KEY
+,ules_neve     VARCHAR2(300) NOT NULL
+,ar            number NOT NULL
+,last_modified DATE          DEFAULT SYSDATE NOT NULL
+,created       DATE          DEFAULT SYSDATE NOT NULL
+);
+
+COMMENT ON TABLE ules IS 'Létezõ összes irdoaiszékhez illeszhetõ ülés listája.';
+COMMENT ON COLUMN ules.ules_neve IS 'Ülés neve';
+COMMENT ON COLUMN ules.ar IS 'Ülés ára Ft-ban';
+
+PROMPT Done.
+
+PROMPT Loading tables...
+ALTER SESSION SET CURRENT_SCHEMA=chair_manager;
+
+/*https://szivacsmester.hu/habszivacs.html*/
+prompt Loading ules...
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (1, 'BASIC habszivacsos ülés', 1000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (2, 'Memórihabos ülés', 2000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (3, 'ELASTIC 20%-al forma tartóbb habszivacsos ülés', 5000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (4, 'Hideghab szivacsos ülés', 2000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (5, 'Légáteresztõ, izzadást gátló habszivacsos ülés', 8000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (6, 'ZDO 43 40%-al sûrûbb/tartósabb habszivacsos ülés', 10000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (7, 'BLO 50 60%-al sûrûbb/tartósabb habszivacsos ülés', 15000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (8, 'ORG 78 100%-al sûrûbb/tartósabb habszivacsos ülés', 20000, SYSDATE, SYSDATE);
+insert into ules (ules_id, ules_neve, ar, last_modified, created)
+values (9, 'KFE 60 60%-al sûrûbb/tartósabb habszivacsos ülés, gerincfájdalmakra', 25000, SYSDATE, SYSDATE);
+
+prompt Done.
+

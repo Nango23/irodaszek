@@ -1,0 +1,40 @@
+PROMPT Creating talp...
+
+CREATE TABLE rendeles_irodaiszek(
+rendeles_id                NUMBER        NOT NULL FOREIGN KEY REFERENCES rendeles(rendeles_id)
+,irodaiszek_id             NUMBER        NOT NULL FOREIGN KEY REFERENCES irodaiszek(irodaiszek_id)
+,last_modified             DATE          DEFAULT SYSDATE NOT NULL
+,created                   DATE          DEFAULT SYSDATE NOT NULL
+);
+
+COMMENT ON TABLE rendeles_irodaiszek IS 'Rendelésekhez tartozó irodai székek';
+COMMENT ON COLUMN rendeles_irodaiszek.rendeles_id IS 'Rendelés azonosítója';
+COMMENT ON COLUMN rendeles_irodaiszek.irodaiszek_kód IS 'Irodaiszék azonosítója';
+
+PROMPT Done.
+
+PROMPT Loading tables...
+ALTER SESSION SET CURRENT_SCHEMA=chair_manager;
+
+prompt Loading rendeles_irodaiszek...
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (1, 1, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (1, 2, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (1, 3, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (2, 1, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (2, 4, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (3, 2, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (3, 1, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (4, 1, SYSDATE, SYSDATE);
+insert into rendeles_irodaiszek (rendelesszam_id, irodaiszek_kód, last_modified, created)
+values (4, 4, SYSDATE, SYSDATE);
+
+prompt Done.
+
